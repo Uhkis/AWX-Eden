@@ -78,21 +78,11 @@ var awx = {};
 				// --- STEP 4: Init UI
 				step4 : function() {
 					awxUI.init();
-                                        $(document.documentElement).keypress(function (event) {
-                                          // handle cursor keys
-                                          if (event.keyCode == 37) {
-                                            xbmc.input({type: 'Left'}); return false;
-                                          } else if (event.keyCode == 38) {
-                                            xbmc.input({type: 'Up'}); return false;
-                                          } else if (event.keyCode == 40) {
-                                            xbmc.input({type: 'Down'}); return false;
-                                          } else if (event.keyCode == 13) {
-                                            xbmc.input({type: 'Select'}); return false;
-                                          } else if (event.keyCode == 39) {
-                                            xbmc.input({type: 'Right'}); return false;
-                                          }
-                                        });
-
+                                        jQuery(document).bind('keydown', 'left',function (evt){ xbmc.input({type: 'Left'}); return false; });
+                                        jQuery(document).bind('keydown', 'up',function (evt){ xbmc.input({type: 'Up'}); return false; });
+                                        jQuery(document).bind('keydown', 'right',function (evt){ xbmc.input({type: 'Right'}); return false; });
+                                        jQuery(document).bind('keydown', 'down',function (evt){ xbmc.input({type: 'Down'}); return false; });
+                                        jQuery(document).bind('keydown', 'return',function (evt){ xbmc.input({type: 'Select'}); return false; });
 					init.step5();
 				},
 
